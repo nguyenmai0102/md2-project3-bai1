@@ -43,7 +43,7 @@ public class FlowerMenu {
             System.out.println("******************QUẢN LÝ LOẠI HOA********************");
             System.out.println("1.cập nhập danh sách");
             System.out.println("2. tạo mới loài hoa");
-            System.out.println("3. xoa");
+            System.out.println("3. cập nhập trạng thái");
             System.out.println("4.tìm kiếm loại hoa theo tên hoặc giá tiền");
             System.out.println("5. thoát");
             System.out.println(" vui lòng chọn từ 1 đến 5");

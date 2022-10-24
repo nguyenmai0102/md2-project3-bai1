@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ICatalog<T, E> extends Ishop<T, E> {
 
-    List<T> sort();
+    void sort();
 
     List<T> findByName(E e);
 

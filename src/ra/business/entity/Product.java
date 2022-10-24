@@ -6,49 +6,49 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Product  {
-    private  int Id;
-    private boolean Status;
-    private  String Name;
+    private  String id;
+    private boolean status;
+    private  String name;
     List<FlowersSpecies> list;
-    private String Description;
-    private Catalog Catalog;
-    private float Price;
+    private String description;
+    private Catalog catalog;
+    private float price;
 
     public Product() {
     }
 
-    public Product(int id, boolean status, String name, List<FlowersSpecies> list, String description, ra.business.entity.Catalog catalog, float price) {
-        Id = id;
-        Status = status;
-        Name = name;
+    public Product(String id, boolean status, String name, List<FlowersSpecies> list, String description, Catalog catalog, float price) {
+        this.id = id;
+        this.status = status;
+        this.name = name;
         this.list = list;
-        Description = description;
-        Catalog = catalog;
-        Price = price;
+        this.description = description;
+        this.catalog = catalog;
+        this.price = price;
     }
 
-    public int getId() {
-        return Id;
+    public String getId() {
+        return id;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public boolean isStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(boolean status) {
-        Status = status;
+        this.status = status;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public List<FlowersSpecies> getList() {
@@ -60,28 +60,26 @@ public class Product  {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
-    public ra.business.entity.Catalog getCatalog() {
-        return Catalog;
+    public Catalog getCatalog() {
+        return catalog;
     }
 
-    public void setCatalog(ra.business.entity.Catalog catalog) {
-        Catalog = catalog;
+    public void setCatalog(Catalog catalog) {
+        this.catalog = catalog;
     }
 
     public float getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(float price) {
-        Price = price;
+        this.price = price;
     }
-
-
 }

@@ -8,9 +8,7 @@ import ra.data.FileImp;
 import ra.data.dataURL;
 
 ;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CatalogImp implements ICatalog<Catalog, String> {
 
@@ -132,8 +130,19 @@ public class CatalogImp implements ICatalog<Catalog, String> {
     }
 
     @Override
-    public List<Catalog> sort() {
-        return null;
+    public void sort() {
+        List<Catalog> catalogS = readFromFile();
+        Collections.sort(catalogS, new Comparator<Catalog>() {
+            @Override
+            public int compare(Catalog o1, Catalog o2) {
+                return o1.getCatalogname().compareTo(o2.getCatalogname());
+            }
+        });
+                System.out.printf("%-10s%-31s%-40s%-15s%-10s\n","MA DM","TEN DM", "MO TA", "DO UU TIEN", "TRANG THAI");
+        for (Catalog cat : catalogS) {
+            System.out.printf("%-10s%-31s%-40s%-15d%-10b\n", cat.getCatalogId(),cat.getCatalogname(),cat.getDescription(), cat.getzIndex(), cat.isStatus());
+
+        }
     }
 
 
@@ -161,12 +170,53 @@ public class CatalogImp implements ICatalog<Catalog, String> {
             }
         }
         boolean checkSave= writeToFile(listCatalogFull);
-        if (checkSave && checkSave){
+        if (check && checkSave){
             return true;
         }
         return false;
     }
 
+    public Catalog newInputData(Scanner sc,Catalog cat){
+        List<Catalog> listCatalog = readFromFile();
+        //Khoi tao doi tuong de nhap thong tin
+        String newName;
+        String newDes;
+        int newZindez ;
+        System.out.println("Nhập ten moi cho danh muc:");
+        do{
+            newName= sc.nextLine();
+            boolean checkName = ShopValidate.checkCatalogName(listCatalog,newName);
+            if (checkName){
+                cat.setCatalogname(newName);
+                break;
+            }
+        }while (true);
+        System.out.println("Nhập vào mô tả moi cho danh muc: ");
+        do {
+            newDes = sc.nextLine();
+            if (newDes!= null){
+                cat.setDescription(newDes);
+                break;
+            }else {
+                System.err.println("khong duoc de trong");
+            }
+        }while (true);
 
-}
+        System.out.println("Nhập vào đô ưu tiên moi cho danh mục: ");
+        do {
+            try {
+                newZindez =Integer.parseInt(sc.nextLine());
+            }catch (Exception e){
+                e.printStackTrace();
+                continue;
+            }
+            cat.setzIndex(newZindez);
+            break;
+        }while (true);
+
+        return cat;
+    }
+    }
+
+
 

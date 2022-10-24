@@ -1,12 +1,16 @@
 package ra.business.design;
 
+import ra.business.entity.User;
+
 import java.util.List;
 
 public abstract interface Iuser<T, E> extends Ishop<T, E>{
-    List<T> sort();
+    void displayData();
+
+    void sort();
     boolean changStatus(T t);
-    boolean changPermision(T t);
-    List<T> findByName(E e);
+    boolean changePermision(T t);
+
 
 }
 

@@ -1,38 +1,66 @@
 package ra.business.imp;
 
 import ra.business.design.Iorder;
+import ra.business.entity.FlowersSpecies;
 import ra.business.entity.FlowersType;
 import ra.business.entity.Order;
+import ra.business.entity.Product;
 import ra.data.dataURL;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class OrderImp implements Iorder<Order, Integer> {
     @Override
     public boolean create(Order order) {
-        return false;
+        List<Order> list = readFromFile();
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        list.add(order);
+        boolean result = writeToFile(list);
+        return result;
     }
 
     @Override
     public boolean upDate(Order order) {
+        List<Order> list = readFromFile();
+        boolean returnData = false;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == order.getId()) {
+                list.set(i, order);
+                returnData = true;
+                break;
+            }
+        }
+        boolean result = writeToFile(list);
+        if (result && returnData) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public List<Order> findAll() {
-        return null;
+
+        return readFromFile();
     }
 
     @Override
     public Order inputData(Scanner sc) {
-        return null;
+         return  null;
     }
 
     @Override
     public void displayData() {
+        List<Order> list = readFromFile();
+        System.out.printf("%-10s%-20s%-40s%-50s-\n", "ID", "TOTAL" ,"STATUS", " USER");
+        for (Order od : list) {
+            System.out.printf("%-10s%-20s%-40s%-50s-\n", od.getId(),od.getId(), od.getTotal(),od.getStatus(),od.getUser());
 
+        }
     }
 
     @Override

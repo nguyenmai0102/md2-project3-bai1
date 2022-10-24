@@ -8,19 +8,18 @@ import java.util.Scanner;
 public class Order {
     private int id;
     private float total;
-
-    private String phoneNumber;
     private  String Status;
+    private  List<Product> list;
     private User user;
 
     public Order() {
     }
 
-    public Order(int id, float total, String phoneNumber, String status, User user) {
+    public Order(int id, float total, String status, List<Product> list, User user) {
         this.id = id;
         this.total = total;
-        this.phoneNumber = phoneNumber;
         Status = status;
+        this.list = list;
         this.user = user;
     }
 
@@ -40,21 +39,20 @@ public class Order {
         this.total = total;
     }
 
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public String getStatus() {
         return Status;
     }
 
     public void setStatus(String status) {
         Status = status;
+    }
+
+    public List<Product> getList() {
+        return list;
+    }
+
+    public void setList(List<Product> list) {
+        this.list = list;
     }
 
     public User getUser() {
@@ -64,6 +62,4 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
-
-
 }

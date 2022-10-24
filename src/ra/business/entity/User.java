@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class User {
-    private String userId;
+    private int userId;
     private String userName;
-    private boolean status;
+    private String fullName;
+    private boolean status = true;
     private String email;
-    private int creatDate;
+    private String createdDate;
     private String phoneNumber;
     private String passWord;
     private boolean ispermistion;
@@ -18,22 +19,23 @@ public class User {
     public User() {
     }
 
-    public User(String userId, String userName, boolean status, String email, int creatDate, String phoneNumber, String passWord, boolean ispermistion) {
+    public User(int userId, String userName, String fullName, boolean status, String email, String createdDate, String phoneNumber, String passWord, boolean ispermistion) {
         this.userId = userId;
         this.userName = userName;
+        this.fullName = fullName;
         this.status = status;
         this.email = email;
-        this.creatDate = creatDate;
+        this.createdDate = createdDate;
         this.phoneNumber = phoneNumber;
         this.passWord = passWord;
         this.ispermistion = ispermistion;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -43,6 +45,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public boolean isStatus() {
@@ -61,12 +71,12 @@ public class User {
         this.email = email;
     }
 
-    public int getCreatDate() {
-        return creatDate;
+    public String getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreatDate(int creatDate) {
-        this.creatDate = creatDate;
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 
     public String getPhoneNumber() {

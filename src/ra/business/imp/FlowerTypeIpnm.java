@@ -42,6 +42,7 @@ public class FlowerTypeIpnm implements IFlowersType<FlowersType, Integer> {
     @Override
     public List<FlowersType> sort() {
         List<FlowersType> list= readFromFile();
+
         return null;
     }
 
@@ -56,7 +57,7 @@ public class FlowerTypeIpnm implements IFlowersType<FlowersType, Integer> {
             }
         }
         boolean checkSave = writeToFile(list);
-        if (checkSave && checkSave) {
+        if (check && checkSave) {
             return true;
         }
         return false;

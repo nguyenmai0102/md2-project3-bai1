@@ -25,7 +25,7 @@ public class FlowersSpeciesImp implements IflowerSpecies<FlowersSpecies, String>
             }
         }
         boolean checkSave = writeToFile(list);
-        if (checkSave && checkSave) {
+        if (check && checkSave) {
             return true;
         }
         return false;
@@ -172,6 +172,9 @@ public class FlowersSpeciesImp implements IflowerSpecies<FlowersSpecies, String>
     @Override
     public void displayData() {
         List<FlowersSpecies> list = readFromFile();
+        if (list==null){
+            list = new ArrayList<>();
+        }
         System.out.printf("%-10s%-31s%-31s%-15s%-15s%-40s%-10s\n", "MA DM", "TEN LOAIF HOA", "LOAIJ HOA", "GIA NHAP", "GIA BAN", "MO TA", "TRANG THAI");
         for (FlowersSpecies f : list) {
             System.out.printf("%-10s%-31s%-31s%-15s%-15s%-40s%-10s\n", f.getId(), f.getName(), f.getTypeFlowers().getName(), f.getInputPrice(), f.getOutphutPrice(), f.getDescription(), f.isStatus());
